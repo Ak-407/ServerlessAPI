@@ -1,0 +1,78 @@
+{
+  "/Users/syedamaaniqbal/Desktop/assig-python/email-sender-api/serverless.yml": {
+    "versionFramework": "4.22.0",
+    "servicePath": "/Users/syedamaaniqbal/Desktop/assig-python/email-sender-api/serverless.yml",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "email-sender-api",
+      "org": "amaan3k",
+      "app": "amaan3k",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "region": "us-east-1",
+        "environment": {
+          "EMAIL_USER": "${.env:EMAIL_USER}",
+          "EMAIL_PASS": "${.env:EMAIL_PASS}"
+        }
+      },
+      "functions": {
+        "sendEmail": {
+          "handler": "handler.sendEmail",
+          "events": [
+            {
+              "http": {
+                "path": "send-email",
+                "method": "post",
+                "cors": true
+              }
+            }
+          ]
+        }
+      },
+      "plugins": [
+        "serverless-offline"
+      ],
+      "custom": {
+        "serverless-offline": {
+          "httpPort": 3000
+        }
+      }
+    },
+    "provider": {
+      "name": "aws",
+      "runtime": "nodejs18.x",
+      "region": "us-east-1",
+      "environment": {
+        "EMAIL_USER": "${.env:EMAIL_USER}",
+        "EMAIL_PASS": "${.env:EMAIL_PASS}"
+      }
+    },
+    "dashboard": {
+      "isEnabledForService": true,
+      "requiredAuthentication": true,
+      "orgFeaturesInUse": {
+        "providers": false,
+        "monitoring": false
+      },
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": "JYfNd3sgg6Tkgcxpy5",
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "serviceRawFile": "service: email-sender-api\n\n# Connect to your serverless.com account\norg: amaan3k  # Replace with your org name from serverless.com\napp: amaan3k\n\nprovider:\n  name: aws\n  runtime: nodejs18.x\n  region: us-east-1\n  environment:\n    EMAIL_USER: ${.env:EMAIL_USER}\n    EMAIL_PASS: ${.env:EMAIL_PASS}\n\nfunctions:\n  sendEmail:\n    handler: handler.sendEmail\n    events:\n      - http:\n          path: send-email\n          method: post\n          cors: true\n\nplugins:\n  - serverless-offline\n\ncustom:\n  serverless-offline:\n    httpPort: 3000",
+    "command": [
+      "login"
+    ],
+    "options": {},
+    "orgId": "abcb6cc2-3815-492b-b112-21f732815e37",
+    "orgName": "amaan3k",
+    "userId": "RqTdwwvKpsd7YxB4DQ",
+    "userName": "amaan3k",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}

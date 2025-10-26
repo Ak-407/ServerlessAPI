@@ -1,0 +1,17 @@
+{
+    "name": "email-sender-api",
+    "version": "1.0.0",
+    "description": "Serverless email sender API",
+    "main": "handler.js",
+    "scripts": {
+        "start": "serverless offline start",
+        "deploy": "serverless deploy"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3",
+        "nodemailer": "^6.9.7"
+    },
+    "devDependencies": {
+        "serverless-offline": "^13.3.0"
+    }
+}
